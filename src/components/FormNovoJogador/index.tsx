@@ -1,14 +1,13 @@
 import { useEffect } from 'react';
-import { useNovoJogador, useListaJogadores } from '../../hooks/useJogadores';
+import useJogadores from '../../hooks/useJogadores';
 import Form, { TypeValues } from '../Form';
 import inputsForm from './inputs';
 
 export default function FormNovoJogador() {
-  const novoJogador = useNovoJogador();
-  const listaJogadores = useListaJogadores();
+  const { criaJogador, listaJogadores } = useJogadores();
 
   function handleChange(resultados: TypeValues) {
-    novoJogador({
+    criaJogador({
       qualidade: resultados.qualidade,
       liga: resultados.liga,
       clube: resultados.clube,
