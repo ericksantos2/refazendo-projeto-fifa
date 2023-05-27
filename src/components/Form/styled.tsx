@@ -9,5 +9,9 @@ export const FormDiv = styled.div`
     gap: 1rem;
     height: 100%;
     justify-content: center;
+    > button {
+      min-height: 50px;
+      min-width: 250px;
+    }
   }
 `
