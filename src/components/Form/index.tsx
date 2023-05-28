@@ -16,15 +16,20 @@ export type TypeValues = { [x: string]: { value: string; text: string } };
 
 interface Props {
   inputs: inputForm[];
-  handleChange: (resultados: TypeValues) => void;
+  handleSubmit: (resultados: TypeValues) => void;
 }
 
-export default function Form({ inputs, handleChange: onChange }: Props) {
-  const [values, setValues] = useState<TypeValues>({});
+export default function Form({ inputs, handleSubmit: onSubmit }: Props) {
+  const [values, setValues] = useState<TypeValues>(
+    inputs.reduce(
+      (state, action) => ({ ...state, [action.value]: {} }),
+      {}
+    )
+  );
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    onChange(values);
+    onSubmit(values);
   }
 
   const handleChange =
@@ -59,6 +64,7 @@ export default function Form({ inputs, handleChange: onChange }: Props) {
                   <InputLabel id={id}>{input.label}</InputLabel>
                   <Select
                     labelId={id}
+                    data-testid={`formId__${input.value}`}
                     label={input.label}
                     value={values[input.value]?.value || ''}
                     onChange={handleChange(input.value)}

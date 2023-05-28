@@ -6,7 +6,7 @@ import inputsForm from './inputs';
 export default function FormNovoJogador() {
   const { criaJogador, listaJogadores } = useJogadores();
 
-  function handleChange(resultados: TypeValues) {
+  function handleSubmit(resultados: TypeValues) {
     criaJogador({
       qualidade: resultados.qualidade,
       liga: resultados.liga,
@@ -19,5 +19,5 @@ export default function FormNovoJogador() {
     console.log(listaJogadores());
   }, [listaJogadores]);
 
-  return <Form handleChange={handleChange} inputs={inputsForm} />;
+  return <Form handleSubmit={handleSubmit} inputs={inputsForm} />;
 }
