@@ -31,8 +31,6 @@ describe('Testes do formulário', () => {
       {}
     );
 
-    console.log(handleSubmit.mock.calls);
-
     expect(handleSubmit).toHaveBeenCalledWith(expectedOutput);
   });
 });
