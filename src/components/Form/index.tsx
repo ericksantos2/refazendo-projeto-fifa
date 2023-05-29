@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { FormDiv } from './styled';
 import { v4 as uuidv4 } from 'uuid';
-import { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { inputForm } from '../../interfaces/inputs';
 
 export type TypeValues = { [x: string]: { value: string; text: string } };
@@ -17,9 +17,10 @@ export type TypeValues = { [x: string]: { value: string; text: string } };
 interface Props {
   inputs: inputForm[];
   handleSubmit: (resultados: TypeValues) => void;
+  style?: React.CSSProperties
 }
 
-export default function Form({ inputs, handleSubmit: onSubmit }: Props) {
+export default function Form({ inputs, handleSubmit: onSubmit, style }: Props) {
   const [values, setValues] = useState<TypeValues>(
     inputs.reduce(
       (state, action) => ({ ...state, [action.value]: {} }),
@@ -53,7 +54,7 @@ export default function Form({ inputs, handleSubmit: onSubmit }: Props) {
     };
 
   return (
-    <FormDiv>
+    <FormDiv style={style}>
       <form onSubmit={handleSubmit}>
         {inputs.map((input, index) => {
           const id = uuidv4();
@@ -68,6 +69,7 @@ export default function Form({ inputs, handleSubmit: onSubmit }: Props) {
                     label={input.label}
                     value={values[input.value]?.value || ''}
                     onChange={handleChange(input.value)}
+                    required={input.required}
                   >
                     {input.inputs?.map((opcao, indexB) => (
                       <MenuItem value={opcao.value} key={indexB}>
@@ -84,6 +86,7 @@ export default function Form({ inputs, handleSubmit: onSubmit }: Props) {
                     label={input.label}
                     variant='outlined'
                     onChange={handleChange(input.value)}
+                    required={input.required}
                   />
                 </>
               )}
