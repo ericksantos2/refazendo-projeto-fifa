@@ -7,7 +7,7 @@ import {
   SelectChangeEvent,
   TextField,
 } from '@mui/material';
-import { FormDiv } from './styled';
+import { FormStyled } from './styled';
 import { v4 as uuidv4 } from 'uuid';
 import React, { ChangeEvent, useState } from 'react';
 import { inputForm } from '../../interfaces/inputs';
@@ -54,8 +54,8 @@ export default function Form({ inputs, handleSubmit: onSubmit, style }: Props) {
     };
 
   return (
-    <FormDiv style={style}>
-      <form onSubmit={handleSubmit}>
+    <div style={style}>
+      <FormStyled onSubmit={handleSubmit}>
         {inputs.map((input, index) => {
           const id = uuidv4();
           return (
@@ -96,7 +96,7 @@ export default function Form({ inputs, handleSubmit: onSubmit, style }: Props) {
         <Button variant='contained' type='submit'>
           Enviar
         </Button>
-      </form>
-    </FormDiv>
+      </FormStyled>
+    </div>
   );
 }
