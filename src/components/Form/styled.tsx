@@ -1,8 +1,6 @@
 import { styled } from "styled-components";
 
-export const FormDiv = styled.div`
-  grid-area: form;
-  > form {
+export const FormStyled = styled.form`
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -13,5 +11,5 @@ export const FormDiv = styled.div`
       min-height: 50px;
       min-width: 250px;
     }
-  }
+  
 `
