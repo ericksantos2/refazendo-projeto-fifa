@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
 import useJogadores from '../../hooks/useJogadores';
 import Form, { TypeValues } from '../Form';
-import inputsForm from './inputs';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 export default function FormNovoJogador() {
-  const { criaJogador, listaJogadores } = useJogadores();
+  const { criaJogador } = useJogadores();
+  const inputsForm = useSelector((state: RootState) => state.inputsNovoJogadorSlice);
 
   function handleSubmit(resultados: TypeValues) {
     criaJogador({
@@ -15,9 +16,5 @@ export default function FormNovoJogador() {
     });
   }
 
-  useEffect(() => {
-    console.log(listaJogadores());
-  }, [listaJogadores]);
-
-  return <Form handleSubmit={handleSubmit} inputs={inputsForm} />;
+  return <Form style={{gridArea: 'form'}} handleSubmit={handleSubmit} inputs={inputsForm} />;
 }
