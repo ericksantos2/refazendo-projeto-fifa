@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   };
 
   :root {
-    --font-family: 'Josefin Sans', sans-serif;
+    --font-family: 'Roboto', sans-serif;
   }
 `
 
