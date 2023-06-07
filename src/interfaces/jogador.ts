@@ -1,11 +1,11 @@
-export interface Item {
+export interface ItemJogador {
   text: string;
   value: string;
 }
 
 export interface IJogador {
-  qualidade: Item,
-  liga: Item,
-  clube: Item,
-  nacionalidade: Item,
+  qualidade: ItemJogador,
+  liga: ItemJogador,
+  clube: ItemJogador,
+  nacionalidade: ItemJogador,
 }
