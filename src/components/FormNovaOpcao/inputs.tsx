@@ -3,11 +3,6 @@ import { inputForm } from "../../interfaces/inputs";
 const inputsForm: inputForm[] = [
   {
     type: 'input',
-    value: 'qualidade',
-    label: 'Qualidade'
-  },
-  {
-    type: 'input',
     value: 'liga',
     label: 'Liga',
   },
