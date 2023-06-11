@@ -1,21 +1,26 @@
-import { useEffect } from "react";
-import useJogadores from "../../hooks/useJogadores";
-import { EstatisticasDiv } from "./styled";
+import useEstatisticas from '../../hooks/useEstatisticas';
+import { EstatisticasDiv } from './styled';
 
 export default function EstatisticasGerais() {
-  const { listaJogadores, getEstatisticas } = useJogadores();
-  const jogadores = listaJogadores();
-
-  useEffect(() => {
-    getEstatisticas();
-  }, [jogadores, getEstatisticas])
+  const { maiores } = useEstatisticas();
 
   return (
     <EstatisticasDiv>
-      <p>Qualidade com mais jogadores: <span>Ouro</span></p>
-      <p>Liga com mais jogadores: <span>La Liga</span></p>
-      <p>Clube com mais jogadores: <span>Real Madrid</span></p>
-      <p>Nacionalidade com mais jogadores: <span>Brasil</span></p>
+      {['Qualidade', 'Liga', 'Clube', 'Nacionalidade'].map((item, index) => {
+        const msg =
+          item === 'Clube' ? 'Nenhum por enquanto' : 'Nenhuma por enquanto';
+        const itemFind = item.toLowerCase() as
+          | 'qualidade'
+          | 'liga'
+          | 'clube'
+          | 'nacionalidade';
+        return (
+          <p key={index}>
+            {item} com mais jogadores:{' '}
+            <span>{maiores[itemFind]?.nome || msg}</span>
+          </p>
+        );
+      })}
     </EstatisticasDiv>
-  )
+  );
 }
