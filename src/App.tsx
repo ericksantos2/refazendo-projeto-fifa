@@ -1,3 +1,5 @@
+import Cards from "./components/Cards";
+import Estatisticas from "./components/Estatisticas";
 import EstatisticasGerais from "./components/EstatisticasGerais";
 import FormNovaOpcao from "./components/FormNovaOpcao";
 import FormNovoJogador from "./components/FormNovoJogador";
@@ -10,7 +12,9 @@ export default function App() {
         <FormNovoJogador />
         <FormNovaOpcao />
         <EstatisticasGerais />
+        <Estatisticas />
       </AppContainer>
+      <Cards />
     </AppRoot>
   )
 }
