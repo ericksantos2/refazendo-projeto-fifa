@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const AppRoot = styled.div`
   width: 100%;
-  min-height: 120vh;
+  min-height: 100vh;
 `
 
 const AppContainer = styled.div`
