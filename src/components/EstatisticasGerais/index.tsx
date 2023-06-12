@@ -1,12 +1,13 @@
 import useEstatisticas from '../../hooks/useEstatisticas';
 import { KeysEstatisticas } from '../../interfaces/estatisticas';
-import { EstatisticasDiv } from './styled';
+import { EstatGeraisDiv } from './styled';
 
 export default function EstatisticasGerais() {
   const { maiores } = useEstatisticas();
 
   return (
-    <EstatisticasDiv>
+    <EstatGeraisDiv>
+      <h1>Estatísticas Gerais</h1>
       {['Qualidade', 'Liga', 'Clube', 'Nacionalidade'].map((item, index) => {
         const msg =
           item === 'Clube' ? 'Nenhum por enquanto' : 'Nenhuma por enquanto';
@@ -18,6 +19,6 @@ export default function EstatisticasGerais() {
           </p>
         );
       })}
-    </EstatisticasDiv>
+    </EstatGeraisDiv>
   );
 }
