@@ -1,10 +1,10 @@
-import { act, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import EstatisticasGerais from './EstatisticasGerais';
 import { Provider } from 'react-redux';
 import storeImport from '../store';
 import { configureStore } from '@reduxjs/toolkit';
-import jogadoresSlice, { adicionarJogador } from '../store/reducers/jogadores';
-import { criaInput as criaItem } from '../utils/criaInput';
+import jogadoresSlice from '../store/reducers/jogadores';
+import useAdicionaJogadorSimples from '../utils/testUtils';
 
 describe('Testes das estatísticas gerais', () => {
   test('Teste se tá tudo aparecendo', () => {
@@ -23,6 +23,7 @@ describe('Testes das estatísticas gerais', () => {
         jogadoresSlice,
       },
     });
+    const adicionaJogadorSimples = useAdicionaJogadorSimples(store);
     const screen = render(
       <Provider store={store}>
         <EstatisticasGerais />
@@ -34,19 +35,6 @@ describe('Testes das estatísticas gerais', () => {
       qualidade.getElementsByTagName('span')[0].innerHTML;
     // esperado que nenhuma qualidade seja a maior, pois ainda não tem nenhuma.
     expect(qualidadeComMaisJogadores()).toBe('Nenhuma por enquanto');
-    // função para adicionar um novo jogador simples (todos os campos com o mesmo valor)
-    const adicionaJogadorSimples = (nome: string) => {
-      act(() => {
-        store.dispatch(
-          adicionarJogador({
-            qualidade: criaItem(nome),
-            liga: criaItem(nome),
-            clube: criaItem(nome),
-            nacionalidade: criaItem(nome),
-          })
-        );
-      });
-    };
     // adiciona ouro para a qualidade com mais jogadores se tornar ouro
     adicionaJogadorSimples('Ouro');
     expect(qualidadeComMaisJogadores()).toBe('Ouro');
