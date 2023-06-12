@@ -1,12 +1,16 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
-export const EstatisticasDiv = styled.div`
+export const EstatGeraisDiv = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
   grid-area: resGeral;
   justify-content: center;
+  > h1 {
+    font-size: 18px;
+    margin-bottom: 0.33rem;
+  }
   > p {
     align-items: center;
     display: flex;
