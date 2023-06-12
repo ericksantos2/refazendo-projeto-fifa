@@ -1,13 +1,8 @@
-import { useEffect } from 'react';
 import useJogadores from '../../hooks/useJogadores';
 import { Card, CardsDiv } from './styled';
 
 export default function Cards() {
   const { lista: jogadores } = useJogadores();
-
-  useEffect(() => {
-    console.log(jogadores);
-  }, [jogadores]);
 
   return (
     <CardsDiv>
