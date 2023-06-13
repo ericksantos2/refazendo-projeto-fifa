@@ -4,7 +4,7 @@ export const FormStyled = styled.form`
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: .67rem;
     height: 100%;
     justify-content: center;
     > button {
