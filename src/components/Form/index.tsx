@@ -17,10 +17,11 @@ export type TypeValues = { [x: string]: { value: string; text: string } };
 interface Props {
   inputs: inputForm[];
   handleSubmit: (resultados: TypeValues) => void;
+  alvoReset: string;
   style?: React.CSSProperties
 }
 
-export default function Form({ inputs, handleSubmit: onSubmit, style }: Props) {
+export default function Form({ inputs, handleSubmit: onSubmit, alvoReset, style }: Props) {
   const [values, setValues] = useState<TypeValues>(
     inputs.reduce(
       (state, action) => ({ ...state, [action.value]: {} }),
@@ -95,6 +96,12 @@ export default function Form({ inputs, handleSubmit: onSubmit, style }: Props) {
         })}
         <Button variant='contained' type='submit'>
           Enviar
+        </Button>
+        <Button variant='outlined' onClick={() => {
+          localStorage.removeItem(alvoReset);
+          window.location.reload();
+        }}>
+          Resetar
         </Button>
       </FormStyled>
     </div>
