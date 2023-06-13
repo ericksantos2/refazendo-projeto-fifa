@@ -24,6 +24,7 @@ export default function FormNovaOpcao() {
       style={{ gridArea: 'formSelect' }}
       inputs={inputsForm}
       handleSubmit={handleSubmit}
+      alvoReset='inputs'
     />
   );
 }

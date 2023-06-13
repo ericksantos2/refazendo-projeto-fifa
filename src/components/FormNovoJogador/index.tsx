@@ -5,7 +5,9 @@ import { RootState } from '../../store';
 
 export default function FormNovoJogador() {
   const { criaJogador } = useJogadores();
-  const inputsForm = useSelector((state: RootState) => state.inputsNovoJogadorSlice);
+  const inputsForm = useSelector(
+    (state: RootState) => state.inputsNovoJogadorSlice
+  );
 
   function handleSubmit(resultados: TypeValues) {
     criaJogador({
@@ -16,5 +18,12 @@ export default function FormNovoJogador() {
     });
   }
 
-  return <Form style={{gridArea: 'form'}} handleSubmit={handleSubmit} inputs={inputsForm} />;
+  return (
+    <Form
+      style={{ gridArea: 'form' }}
+      handleSubmit={handleSubmit}
+      inputs={inputsForm}
+      alvoReset='jogadores'
+    />
+  );
 }
