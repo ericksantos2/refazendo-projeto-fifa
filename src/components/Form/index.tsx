@@ -17,11 +17,11 @@ export type TypeValues = { [x: string]: { value: string; text: string } };
 interface Props {
   inputs: inputForm[];
   handleSubmit: (resultados: TypeValues) => void;
-  alvoReset: string;
+  alvoReset?: string;
   style?: React.CSSProperties
 }
 
-export default function Form({ inputs, handleSubmit: onSubmit, alvoReset, style }: Props) {
+export default function Form({ inputs, handleSubmit: onSubmit, alvoReset = 'undefined', style }: Props) {
   const [values, setValues] = useState<TypeValues>(
     inputs.reduce(
       (state, action) => ({ ...state, [action.value]: {} }),
