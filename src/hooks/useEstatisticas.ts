@@ -1,9 +1,14 @@
-import { Estatisticas, ItemEstatisticas, KeysEstatisticas, Maiores } from '../interfaces/estatisticas';
+import {
+  Estatisticas,
+  ItemEstatisticas,
+  KeysEstatisticas,
+  Maiores,
+} from '../interfaces/estatisticas';
 import { ItemJogador } from '../interfaces/jogador';
 import useJogadores from './useJogadores';
 
 export default function useEstatisticas() {
-  const jogadores = useJogadores().lista;
+  const jogadores = useJogadores().jogadores;
   const estatisticas = jogadores.reduce((state, action) => {
     return (Object.entries(action) as [KeysEstatisticas, ItemJogador][]).reduce(
       (stateEntries, [typeNaoTipado, { text, value }]) => {

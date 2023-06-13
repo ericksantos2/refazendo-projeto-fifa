@@ -2,7 +2,7 @@ import useJogadores from '../../hooks/useJogadores';
 import { Card, CardsDiv } from './styled';
 
 export default function Cards() {
-  const { lista: jogadores } = useJogadores();
+  const { jogadores } = useJogadores();
 
   return (
     <CardsDiv>

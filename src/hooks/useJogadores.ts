@@ -11,6 +11,6 @@ export default function useJogadores() {
       const jogador = { ...jogadorProps };
       dispatch(adicionarJogador(jogador));
     },
-    lista: jogadores,
+    jogadores,
   };
 }
