@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { inputForm } from '../../interfaces/inputs';
 import { criaInput } from '../../utils/criaInput';
 
-const initialState: inputForm[] = [
+const initialState: inputForm[] = JSON.parse(localStorage.getItem('inputs') as string) || [
   {
     type: 'select',
     value: 'qualidade',
