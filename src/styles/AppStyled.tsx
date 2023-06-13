@@ -11,7 +11,7 @@ const AppContainer = styled.div`
     "form formSelect"
     "resGeral res";
   grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 60% auto;
   width: 100%;
   height: 100vh;
 `
